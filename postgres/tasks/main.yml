@@ -19,6 +19,7 @@
 
 - name: Initialize Postgres Database
   shell: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+  ignore_errors: yes
 
 - name: Start and enable the postgres service 
   service:

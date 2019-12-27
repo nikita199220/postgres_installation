@@ -27,9 +27,6 @@
     state: started
     enabled: yes
 
-- name: Intialize the postgres database
-  shell: postgresql-setup initdb
-
 - name: Start postgres service
   service:
     name: postgresql

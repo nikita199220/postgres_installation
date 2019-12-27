@@ -27,8 +27,8 @@
     state: started
     enabled: yes
 
-- name: Configure the database
-  shell: sudo passwd postgres
+#- name: Configure the database
+#  shell: passwd postgres
 
 - name: Change postgres user password
   postgresql_user:

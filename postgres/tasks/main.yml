@@ -7,10 +7,8 @@
 
 - name: Install postgres rpm 
   yum:
-    name: "{{ item }}"
-  with_items:
-    - pgdg-centos96-9.6-3.noarch.rpm
-    - epel-release
+    name: epel-release
+    state: present
 
 - name: Update Yum Repository
   yum:

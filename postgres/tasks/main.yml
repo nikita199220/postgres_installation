@@ -9,7 +9,7 @@
   yum:
     name: "{{ item }}"
   with_items:
-    - pgdg-centos96-9.6-3.noarch.rpm
+    - pgdg-centos96-9.6-3
     - epel-release
 
 - name: Update Yum Repository

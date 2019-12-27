@@ -27,12 +27,6 @@
     state: started
     enabled: yes
 
-
-- name: Start postgres service
-  service:
-    name: postgresql
-    state: enabled
-
 - name: Configure the database
   shell: sudo passwd postgres
 

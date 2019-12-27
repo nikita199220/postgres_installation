@@ -27,10 +27,6 @@
     state: started
     enabled: yes
 
-- name: Start postgres service
-  service:
-    name: postgresql
-    state: started
 
 - name: Start postgres service
   service:

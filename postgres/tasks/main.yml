@@ -1,0 +1,51 @@
+---
+# tasks file for postgres
+- name: Download and install postgres rpm
+  yum:
+    name: https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+    state: present
+
+- name: Install postgres rpm 
+  yum:
+    name: {{ package }}
+  loop:
+    - pgdg-centos96-9.6-3.noarch.rpm
+    - epel-release
+
+- name: Update Yum Repository
+  yum:
+    name: {{ packages }}
+  loop:
+    - postgresql96-server
+    - postgresql96-contrib
+
+- name: Initialize Postgres Database
+  shell: /usr/pgsql-9.6/bin/postgresql96-setup initdb
+
+- name: Start and enable the postgres service 
+  service:
+    name: postgresql-9.6
+    state: started
+    enabled: yes
+
+- name: Intialize the postgres database
+  shell: postgresql-setup initdb
+
+- name: Start postgres service
+  service:
+    name: postgresql
+    state: started
+
+- name: Start postgres service
+  service:
+    name: postgresql
+    state: enabled
+
+- name: Configure the database
+  shell: sudo passwd postgres
+
+- name: Change postgres user password
+  postgresql_user:
+    db: postgres
+    name: postgres
+    password: postgrespassword
